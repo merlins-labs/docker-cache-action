@@ -11,9 +11,9 @@ main() {
     ls -lh "$cache_tar"
     timing sudo service docker stop
     # mv is c. 25 seconds faster than rm -rf here
-    timing sudo mv /var/lib/docker "$(mktemp -d --dry-run)"
-    sudo mkdir -p /var/lib/docker
-    timing sudo tar -xf "$cache_tar" -C /var/lib/docker
+    timing sudo mv /var/lib/docker/buildkit "$(mktemp -d --dry-run)"
+    sudo mkdir -p /var/lib/docker/buildkit
+    timing sudo tar -xf "$cache_tar" -C /var/lib/docker/buildkit
     timing sudo service docker start
   else
     # Slim docker down - comes with 3GB of data we don't want to backup
