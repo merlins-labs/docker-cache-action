@@ -5,6 +5,7 @@ on:
     # * is a special character in YAML so you have to quote this string
 #    - cron:  '* 1 * * *'
   push:
+  workflow_dispatch:
 
 env:
   DOCKER_REPO: mahoney-playground/docker-cache-action
